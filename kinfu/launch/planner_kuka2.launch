@@ -1,5 +1,5 @@
 <launch>
-  <include file="$(find kinect2_bridge)/launch/kinect2_bridge_mute.launch" />
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch" />
   
   <include file="$(find planner)/launch/planner_reconf.launch" />
 
