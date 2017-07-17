@@ -58,7 +58,7 @@
 
 // only when PARAM_NAME_FORCED_TF_POSITION is enabled (by param or by command)
 #define PARAM_NAME_FORCED_REFERENCE_FRAME "forced_tf_reference_frame"
-#define PARAM_DEFAULT_FORCED_REFERENCE_FRAME ""
+#define PARAM_DEFAULT_FORCED_REFERENCE_FRAME "world"
 
 #define PARAM_NAME_FORCED_CURRENT_FRAME   "forced_tf_current_frame"
 #define PARAM_DEFAULT_FORCED_CURRENT_FRAME ""
@@ -69,11 +69,11 @@
 // kinfu parameters
 #define PARAM_NAME_VOLUME_SIZE            "volume_size"
 #define PARAM_SNAME_VOLUME_SIZE           "vs"
-#define PARAM_DEFAULT_VOLUME_SIZE         (double(3.0))
+#define PARAM_DEFAULT_VOLUME_SIZE         (double(3.0)) //3.0
 
 #define PARAM_NAME_SHIFT_DISTANCE         "shift_distance"
 #define PARAM_SNAME_SHIFT_DISTANCE        "sd"
-#define PARAM_DEFAULT_SHIFT_DISTANCE      (double(1.5))
+#define PARAM_DEFAULT_SHIFT_DISTANCE      (double(2.0)) //1.5
 
 #define PARAM_NAME_CUDA_DEVICE_ID         "cuda_device_id"
 #define PARAM_DEFAULT_CUDA_DEVICE_ID      (int(0))
@@ -84,7 +84,7 @@
 
 #define PARAM_NAME_EXTRACT_TEXTURES       "extract_textures"
 #define PARAM_SNAME_EXTRACT_TEXTURES      "et"
-#define PARAM_DEFAULT_EXTRACT_TEXTURES    (bool(false))
+#define PARAM_DEFAULT_EXTRACT_TEXTURES    (bool(false)) // NOT IMPLEMENTED!
 
 #define PARAM_NAME_DEPTH_WIDTH            "depth_width"
 #define PARAM_DEFAULT_DEPTH_WIDTH         640
@@ -95,7 +95,7 @@
 // if true, the kinfu engine will start automatically
 // otherwise, it will wait for a COMMAND_TYPE_RESUME
 #define PARAM_NAME_AUTOSTART              "autostart"
-#define PARAM_DEFAULT_AUTOSTART           (bool(true))
+#define PARAM_DEFAULT_AUTOSTART           (bool(false))
 
 #define PARAM_NAME_EXTRACT_KNOWN_POINTS    "extract_known_points"
 #define PARAM_DEFAULT_EXTRACT_KNOWN_POINTS (bool(false))
