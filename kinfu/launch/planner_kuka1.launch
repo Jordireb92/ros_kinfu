@@ -1,0 +1,31 @@
+<launch>
+  <include file="$(find openni_launch)/launch/openni.launch">
+    <arg name="camera" value="kinect1" />
+  </include>
+
+  <include file="$(find planner)/launch/planner_reconf.launch" />
+
+  
+  <node pkg="kinfu" type="kinfu" name="kinect_kinfu1" output="screen" launch-prefix="xterm -e">
+    <param name="prefix_topic" value="/kinect1" />
+    <param name="autostart" value="true" />
+    <param name="response_topic" value="/kinfu1_response_topic" />
+    <param name="request_topic" value="/kinfu1_request_topic" />
+    <param name="extract_known_points" value="true" />
+    <param name="forced_tf_current_frame" value="kinect1_link_frame" />
+  </node>
+  
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(find kinfu)/launch/kinfu_test_kuka_k1.rviz" ></node>
+<!--<node pkg="rviz" type="rviz" name="rviz"></node>-->
+
+  <!-- Creating the world reference! -->
+  <!--<node pkg="tf" type="static_transform_publisher" name="world_to_kinect" args="0 0.5 1 0 0 3.1416 world kinfu_first_frame 100" />-->
+  <node pkg="tf" type="static_transform_publisher" name="world_to_kinect" args="0 0 0 0 0 0 world kinfu_first_frame 100" />
+  <node pkg="tf" type="static_transform_publisher" name="world_to_box" args="0 0 -1 0 0 0 world box 100" />
+
+  <!-- Linking the kinfu reference to the kinect bridge one! -->  
+  <node pkg="tf" type="static_transform_publisher" name="kinect1_to_kinfu" args="0 0 0 -1.5708 -1.5708 3.14159 kinfu_current_frame kinect1_link 100" />
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="kinect2_to_kinfu" args="0 0 0 0 0 0 kinfu_current_frame kinect1_link 100" /> -->
+
+</launch>
